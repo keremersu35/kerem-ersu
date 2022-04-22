@@ -2,6 +2,7 @@ const express = require("express")
 const ogrenciNoGonder = require("./utils/test_test")
 const ogrenciAdSoyad = require("./utils/test_html")
 const getAdress = require("./utils/test_geocode")
+const JsonData = require("./utils/test_json")
 
 const app = express()
 
@@ -22,11 +23,12 @@ app.get("/test_html",(req,res)=>{
 })
 
 app.get("/test_json",(req,res)=>{
-    res.send("Anasayfa")
+    const jsonDosya = JsonData.loadData()
+    res.send()
 })
 
 app.get("/test_geocode",(req,res)=>{
-    res.send("Anasayfa")
+    req.query.city
 })
 
 app.get("/test_weather",(req,res)=>{
