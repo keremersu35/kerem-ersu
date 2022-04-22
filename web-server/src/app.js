@@ -1,6 +1,7 @@
 const express = require("express")
 const ogrenciNoGonder = require("./utils/test_test")
 const ogrenciAdSoyad = require("./utils/test_html")
+const getAdress = require("./utils/test_geocode")
 
 const app = express()
 

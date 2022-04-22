@@ -1,12 +1,7 @@
+const request = require("request")
 
-const getOgrenciAdSoyad = (callback) =>{
-    const OgrenciAdSoyad = "<p>Kerem Ersu</p>";
-
-    if(error){
-        callback("Ogrenci adi soyadi alinamadi",undefined)
-    }else{
-        return(undefined,OgrenciAdSoyad)
-    }
+const getOgrenciAdSoyad = () =>{
+    const OgrenciAdSoyad = "<h1>Kerem Ersu</h2>";
     return OgrenciAdSoyad;
 }
 
