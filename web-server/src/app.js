@@ -1,5 +1,6 @@
 const express = require("express")
 const ogrenciNoGonder = require("./utils/test_test")
+const ogrenciAdSoyad = require("./utils/test_html")
 
 const app = express()
 
@@ -15,7 +16,8 @@ app.get("/test_test",(req,res)=>{
 })
 
 app.get("/test_html",(req,res)=>{
-    res.send("")
+    const OgrenciAdSoyad = ogrenciAdSoyad.getOgrenciAdSoyad();
+    res.send(OgrenciAdSoyad)
 })
 
 app.get("/test_json",(req,res)=>{
