@@ -1,8 +1,9 @@
 const express = require("express")
 const ogrenciNoGonder = require("./utils/test_test")
 const ogrenciAdSoyad = require("./utils/test_html")
-const getAdress = require("./utils/test_geocode")
+const geocode = require("./utils/test_geocode")
 const JsonData = require("./utils/test_json")
+const weather = require("./utils/test_geocode")
 
 const app = express()
 
@@ -28,7 +29,20 @@ app.get("/test_json",(req,res)=>{
 })
 
 app.get("/test_geocode",(req,res)=>{
-    req.query.city
+    const sehir = req.query.city
+    geocode.geocode(sehir,(error,{enlem, boylam}) =>{
+        if(error){
+            res.send("Hata")
+        }else{
+            weather.getWeather(enlem,boylam,(error,data)=>{
+                if(error){
+                    res.send("Hata")
+                }else{
+                    res.send("Onay")
+                }
+            })
+        }
+    })
 })
 
 app.get("/test_weather",(req,res)=>{
